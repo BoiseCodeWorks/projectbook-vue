@@ -28,5 +28,9 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+input {
+  background: black;
+  color: white;
+}
 </style>

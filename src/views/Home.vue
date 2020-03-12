@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <div>
+      <input type="text">
       <div>
         <button
           @click="showCreateForm = !showCreateForm"
@@ -9,6 +10,8 @@
       <project-creator v-if="showCreateForm" />
     </div>
     <project-selector />
+
+    {{activeProject.name}}
   </div>
 </template>
 
@@ -21,6 +24,11 @@ export default {
     return {
       showCreateForm: false
     };
+  },
+  computed:{
+    activeProject(){
+      return this.$store.state.activeProject
+    }
   },
   components: {
     projectCreator,

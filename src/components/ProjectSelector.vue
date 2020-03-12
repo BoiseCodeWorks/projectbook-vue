@@ -1,7 +1,7 @@
 <template>
   <div class="project-selector">
     <div v-for="project in projects" :key="project.id" class="project">
-      <h5>{{project.name}}</h5>
+      <h5 @click="setActive(project)">{{project.name}}</h5>
     </div>
   </div>
 </template>
@@ -12,6 +12,11 @@ export default {
   computed: {
     projects() {
       return this.$store.state.projects;
+    }
+  },
+  methods:{
+    setActive(project){
+      this.$store.commit("setActiveProject", project)
     }
   }
 };

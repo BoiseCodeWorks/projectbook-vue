@@ -11,6 +11,9 @@ export default new Vuex.Store({
   mutations: {
     addProject(state, project) {
       state.projects.push(project)
+    },
+    setActiveProject(state, project){
+      state.activeProject = project
     }
   },
   actions: {
