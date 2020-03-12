@@ -1,18 +1,30 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div>
+      <div>
+        <button
+          @click="showCreateForm = !showCreateForm"
+        >{{ showCreateForm ? "Cancel" : "Create Project"}}</button>
+      </div>
+      <project-creator v-if="showCreateForm" />
+    </div>
+    <project-selector />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import projectCreator from "../components/ProjectCreator";
+import projectSelector from "../components/ProjectSelector";
 export default {
-  name: 'Home',
+  name: "Home",
+  data() {
+    return {
+      showCreateForm: false
+    };
+  },
   components: {
-    HelloWorld
+    projectCreator,
+    projectSelector
   }
-}
+};
 </script>
